@@ -1,6 +1,7 @@
 const dotenv = require("dotenv").config()
 const express = require("express");
 const mongoose = require("mongoose")
+const cors = require("cors");
 
 
 const app = express();
@@ -13,6 +14,12 @@ app.use("/api/users/", usersRoute);
 app.use("/api/bills/", billsRoute);
 const path = require('path');
 const { log } = require("console");
+app.use(
+    cors({
+      origin: ["http://localhost:3000", "https://shop-dusky-two.vercel.app"],
+      credentials: true,
+    })
+  );
 
 
 
