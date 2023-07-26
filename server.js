@@ -2,10 +2,12 @@ const dotenv = require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
-app.use(cors());
 
 const app = express();
 app.use(express.json());
+
+app.use(cors());
+
 const itemsRoute = require("./routes/itemsRoute");
 const usersRoute = require("./routes/userRoute");
 const billsRoute = require('./routes/billsRoute');
@@ -27,20 +29,3 @@ mongoose.connect(process.env.MONGO_URI).then(() => {
 });
 
 app.get("/", (req, res) => res.send("Hello World! from home api"));
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
